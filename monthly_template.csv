@@ -1,0 +1,5 @@
+# Copy this file to monthly.csv and fill with real monthly data (see docs/data_sources.md).
+# Required: date, inflation_yoy.  Optional: the rest.  Values in percent (15.1 = 15.1%); fx in NGN per USD.
+# Lines starting with # are ignored. Delete the EXAMPLE row below.
+date,inflation_yoy,food_inflation_yoy,core_inflation_yoy,fx_ngn_usd,mpr
+2026-09-01,14.63,19.59,,1328.67,23.0

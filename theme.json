@@ -1,0 +1,26 @@
+{
+  "name": "Nigeria Economy",
+  "dataColors": [
+    "#008751",
+    "#3B5BDB",
+    "#D98E04",
+    "#B42318",
+    "#1D2330",
+    "#98A2B3"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1D2330",
+  "tableAccent": "#008751",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 14,
+      "color": "#1D2330"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#667085"
+    }
+  }
+}

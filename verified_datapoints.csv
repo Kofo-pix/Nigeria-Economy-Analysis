@@ -1,0 +1,29 @@
+indicator,period,value,unit,note,source_name,source_url,verified_on
+headline_inflation_yoy,2026-09,14.63,%,,NBS (via Voice of Nigeria),https://von.gov.ng/nigerias-headline-inflation-drops-to-14-63-per-cent/,2026-11-10
+headline_inflation_yoy,2026-08,15.39,%,,NBS (via Voice of Nigeria),https://von.gov.ng/nigerias-headline-inflation-eases-to-15-39-in-august-nbs/,2026-11-10
+headline_inflation_yoy,2026-06,15.91,%,,NBS (X post),https://x.com/NBS_Nigeria/status/2077397901580345432,2026-11-10
+headline_inflation_yoy,2026-05,15.93,%,,NBS (X post),https://x.com/NBS_Nigeria/status/2077397901580345432,2026-11-10
+headline_inflation_yoy,2026-04,15.69,%,,Nairametrics,https://nairametrics.com/2026/05/20/cbn-retains-monetary-policy-rate-at-26-5/,2026-11-10
+headline_inflation_yoy,2026-03,15.38,%,,Nairametrics,https://nairametrics.com/2026/05/20/cbn-retains-monetary-policy-rate-at-26-5/,2026-11-10
+headline_inflation_yoy,2026-02,15.06,%,,NBS (X post),https://x.com/NBS_Nigeria/status/2033535372580258032,2026-11-10
+headline_inflation_yoy,2026-01,15.10,%,,NBS (X post),https://x.com/NBS_Nigeria/status/2033535372580258032,2026-11-10
+headline_inflation_yoy,2025-06,25.29,%,Comparative as quoted in the June 2026 NBS release; 2025 figures may be restated vs. original releases,NBS (X post),https://x.com/NBS_Nigeria/status/2077397901580345432,2026-11-10
+headline_inflation_yoy,2023-12,28.92,%,Old CPI base (2009=100); described as highest in 21 years,The Frontier,https://thefrontierng.com/nigerias-inflation-rises-to-28-92-per-cent-highest-in-21-years-nbs/,2026-11-10
+headline_inflation_yoy,2022-11,21.47,%,Old CPI base (2009=100),Nairametrics,https://nairametrics.com/2022/12/15/nigerias-inflation-rate-hits-new-record-of-21-47-in-november-2022,2026-11-10
+headline_inflation_yoy,2022-09,20.77,%,Old CPI base (2009=100),Nairametrics,https://nairametrics.com/2022/10/17/breaking-nigerias-inflation-rate-hits-a-new-17-year-high-of-20-77-in-september-2022/,2026-11-10
+headline_inflation_yoy,2022-08,20.52,%,Old CPI base (2009=100),Nairametrics,https://nairametrics.com/2022/09/15/breaking-nigerias-inflation-rate-rises-further-to-20-52-in-august-2022,2026-11-10
+headline_inflation_yoy,2018-12,11.44,%,Old CPI base (2009=100),CBN inflation rates table,https://www.cbn.gov.ng/rates/inflrates.asp?year=2018,2026-11-10
+headline_inflation_yoy,2018-11,11.28,%,Old CPI base (2009=100),CBN inflation rates table,https://www.cbn.gov.ng/rates/inflrates.asp?year=2018,2026-11-10
+headline_inflation_yoy,2018-10,11.26,%,Old CPI base (2009=100),CBN inflation rates table,https://www.cbn.gov.ng/rates/inflrates.asp?year=2018,2026-11-10
+food_inflation_yoy,2026-09,19.59,%,,NBS (X post),https://x.com/NBS_Nigeria/status/2110719518838608370,2026-11-10
+headline_inflation_mom,2026-09,0.06,%,,NBS (X post),https://x.com/NBS_Nigeria/status/2110719518838608370,2026-11-10
+headline_inflation_mom,2026-06,1.66,%,,NBS (X post),https://x.com/NBS_Nigeria/status/2077397901580345432,2026-11-10
+cpi_index,2026-02,130.0,index,Index after NBS methodological revision (Jan 2026 rebased per Proshare footnote),NBS (X post),https://x.com/NBS_Nigeria/status/2033535372580258032,2026-11-10
+cpi_index,2026-01,127.4,index,Index after NBS methodological revision (Jan 2026 rebased per Proshare footnote),NBS (X post),https://x.com/NBS_Nigeria/status/2033535372580258032,2026-11-10
+mpr,2025-11,27.0,%,MPC retained 27% at its November 2025 meeting,BusinessDay,https://businessday.ng/?p=1086929,2026-11-10
+mpr,2026-02,26.5,%,304th MPC (23-24 Feb 2026): cut by 50bps from 27%,CBN decisions page / Nairametrics,https://www.cbn.gov.ng/MonetaryPolicy/Decisions.html,2026-11-10
+mpr,2026-05,26.5,%,305th MPC (19-20 May 2026): retained,CBN decisions page,https://www.cbn.gov.ng/MonetaryPolicy/Decisions.html,2026-11-10
+mpr,2026-07,26.5,%,306th MPC (20-21 Jul 2026): retained,CBN decisions page,https://www.cbn.gov.ng/MonetaryPolicy/Decisions.html,2026-11-10
+mpr,2026-09,23.0,%,307th MPC (21-22 Sep 2026): MPR reset to 23%,CBN decisions page,https://www.cbn.gov.ng/MonetaryPolicy/Decisions.html,2026-11-10
+official_fx_ngn_usd,2026-05,1371.25,NGN per USD,NFEM opening rate on 21 May 2026,Channels TV,https://www.channelstv.com/2026/05/21/naira-steady-after-cbn-retains-interest-rate-at-26-5/,2026-11-10
+official_fx_ngn_usd,2026-09,1328.67,NGN per USD,CBN official selling rate on 24 Sep 2026,Legit.ng (citing CBN),https://www.legit.ng/business-economy/money/1732849-naira-exchange-rate-cbn-releases-latest-dollar-pound-euro-rates/,2026-11-10

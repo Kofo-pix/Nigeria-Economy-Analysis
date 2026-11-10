@@ -1,0 +1,102 @@
+// ============================================================================
+// Nigeria Economy: DAX measures.  Tables: dim_date, dim_year, fact_monthly,
+// fact_annual, fact_verified, fact_decomposition, fact_passthrough, fact_regime_summary
+// Percent columns are exported as fractions: format measures as Percentage (0.0%).
+// NOTE: written carefully but not executed in Power BI Desktop here; validate each measure.
+// ============================================================================
+
+// ---- Banner (put in a card at the top of every page) -------------------------
+Data Status Banner =
+IF (
+    COUNTROWS ( FILTER ( fact_monthly, fact_monthly[data_status] = "SYNTHETIC_SAMPLE" ) ) > 0
+        || COUNTROWS ( FILTER ( fact_annual, fact_annual[data_status] = "SYNTHETIC_SAMPLE" ) ) > 0,
+    "SAMPLE DATA - NOT OFFICIAL STATISTICS",
+    "Official data"
+)
+
+// ---- Latest readings ---------------------------------------------------------
+Latest Month =
+CALCULATE (
+    MAX ( fact_monthly[date] ),
+    FILTER ( ALLSELECTED ( fact_monthly ), NOT ISBLANK ( fact_monthly[inflation_yoy] ) )
+)
+
+Latest Inflation =
+CALCULATE ( MAX ( fact_monthly[inflation_yoy] ), fact_monthly[date] = [Latest Month] )
+
+Inflation 12M Ago =
+CALCULATE (
+    MAX ( fact_monthly[inflation_yoy] ),
+    REMOVEFILTERS ( dim_date ),
+    fact_monthly[date] = EDATE ( [Latest Month], -12 )
+)
+
+Inflation Change vs 12M Ago (pp) = [Latest Inflation] - [Inflation 12M Ago]
+
+Latest FX =
+CALCULATE ( MAX ( fact_monthly[fx_ngn_usd] ), fact_monthly[date] = [Latest Month] )
+
+Latest MPR =
+CALCULATE ( MAX ( fact_monthly[mpr] ), fact_monthly[date] = [Latest Month] )
+
+Latest Real Policy Rate =
+CALCULATE ( MAX ( fact_monthly[real_policy_rate] ), fact_monthly[date] = [Latest Month] )
+
+// ---- Period statistics (react to the Regime / Year slicers) ----------------------
+Avg Inflation = AVERAGE ( fact_monthly[inflation_yoy] )
+Peak Inflation = MAX ( fact_monthly[inflation_yoy] )
+Avg Real Policy Rate = AVERAGE ( fact_monthly[real_policy_rate] )
+Months With Negative Real Rate =
+CALCULATE ( COUNTROWS ( fact_monthly ), fact_monthly[real_policy_rate] < 0 )
+Avg FX Change YoY = AVERAGE ( fact_monthly[fx_yoy] )
+
+Real Rate Colour = IF ( [Avg Real Policy Rate] < 0, "#B42318", "#008751" )
+
+// ---- The naira since the reform date ------------------------------------------
+Last Pre-Reform Month =
+CALCULATE ( MAX ( dim_date[date] ), REMOVEFILTERS ( dim_date ), dim_date[regime] = "Pre-reform" )
+
+FX Pre Reform =
+CALCULATE (
+    MAX ( fact_monthly[fx_ngn_usd] ),
+    REMOVEFILTERS ( dim_date ),
+    fact_monthly[date] = [Last Pre-Reform Month]
+)
+
+Naira Value Lost Since Reform = DIVIDE ( [Latest FX] - [FX Pre Reform], [Latest FX] )
+
+Fixed Income in USD = AVERAGE ( fact_monthly[income_usd_equiv] )
+
+// ---- Annual story --------------------------------------------------------------
+Latest Annual Year =
+CALCULATE (
+    MAX ( fact_annual[year] ),
+    FILTER ( ALLSELECTED ( fact_annual ), NOT ISBLANK ( fact_annual[misery_index_pts] ) )
+)
+
+Misery Index (latest) =
+CALCULATE ( MAX ( fact_annual[misery_index_pts] ), fact_annual[year] = [Latest Annual Year] )
+
+Purchasing Power of NGN 100 (latest) =
+CALCULATE (
+    MAX ( fact_annual[purchasing_power_of_100] ),
+    fact_annual[year] = MAX ( fact_annual[year] )
+)
+
+// ---- Fact-check cards (verified official readings; always real) ---------------------
+Latest Verified Inflation =
+VAR p =
+    CALCULATE ( MAX ( fact_verified[period_date] ), fact_verified[indicator] = "headline_inflation_yoy" )
+RETURN
+    CALCULATE (
+        MAX ( fact_verified[value] ) / 100,
+        fact_verified[indicator] = "headline_inflation_yoy",
+        fact_verified[period_date] = p
+    )
+
+Latest Verified MPR =
+VAR p = CALCULATE ( MAX ( fact_verified[period_date] ), fact_verified[indicator] = "mpr" )
+RETURN
+    CALCULATE ( MAX ( fact_verified[value] ) / 100, fact_verified[indicator] = "mpr", fact_verified[period_date] = p )
+
+Verified Real Policy Rate = [Latest Verified MPR] - [Latest Verified Inflation]
